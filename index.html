@@ -3,119 +3,181 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./styles/main.css" />
         <title>Sonantedd</title>
     </head>
     <body>
-        <header>
-            <nav aria-label="Навигация">
-                <ul>
-                    <li><a href="#about-me">Обо мне</a></li>
-                    <li><a href="#experience">Опыт работы</a></li>
-                    <li><a href="#skills">Навыки</a></li>
-                    <li><a href="#contacts">Контакты</a></li>
+        <header class="header">
+            <nav class="header__nav" aria-label="Навигация">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item">
+                        <a href="#about" class="header__nav-link">Обо мне</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="#experience" class="header__nav-link"
+                            >Опыт работы</a
+                        >
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="#skills" class="header__nav-link">Навыки</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="#contacts" class="header__nav-link"
+                            >Контакты</a
+                        >
+                    </li>
                 </ul>
             </nav>
         </header>
         <main id="main">
-            <section id="hero">
-                <h1>&lt;h1&gt;Hello, world!&lt;h1&gt;</h1>
-                <p>Sonantedd, Frontend-разработчик</p>
+            <section id="hero" class="hero">
+                <h1 class="hero__title">
+                    <span class="hero__title-accent">&lt;h1&gt;</span>Hello,
+                    world!<span class="hero__title-accent"
+                        >&lt;&sol;h1&gt;</span
+                    >
+                </h1>
+                <p class="hero__subtitle">Sonantedd, Frontend-разработчик</p>
             </section>
-            <section id="about-me">
-                <h2>Обо мне</h2>
-                <div>
-                    <img
-                        src="./assets/avatar.jpg"
-                        width="256"
-                        height="256"
-                        alt="моська Sonantedd"
-                        loading="lazy"
-                    />
-                    <div>
-                        <ul>
-                            <li>Фронтенд-разработчик</li>
-                            <li>Из Москвы</li>
-                            <li>Учусь кодить на сплит клавиатуре</li>
-                            <li>Смотрю Формулу 1</li>
+            <section id="about" class="about">
+                <div class="container">
+                    <h2 class="about__title">Обо мне</h2>
+                    <div class="about__content">
+                        <img
+                            class="about__content-avatar"
+                            src="./assets/avatar.jpg"
+                            alt="моська Sonantedd"
+                            loading="lazy"
+                        />
+                        <ul class="about__content-list">
+                            <li class="about__content-item">
+                                Фронтенд-разработчик
+                            </li>
+                            <li class="about__content-item">Из Москвы</li>
+                            <li class="about__content-item">
+                                Учусь кодить на сплит клавиатуре
+                            </li>
+                            <li class="about__content-item">
+                                Смотрю Формулу 1
+                            </li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <section id="experience">
-                <h2>Опыт работы</h2>
-                <ul>
-                    <li>
-                        <h3>ООО "Рога и Копыта"</h3>
-                        <p>Junior Frontend-разработчик</p>
-                        <p>
-                            <time datetime="2020">2020</time> —
-                            <time datetime="2022">2022</time>
-                        </p>
-                    </li>
-                    <li>
-                        <h3>Яндекс</h3>
-                        <p>Middle Frontend-разработчик</p>
-                        <p>
-                            <time datetime="2022">2022</time> —
-                            <time datetime="2025">2025</time>
-                        </p>
-                    </li>
-                    <li>
-                        <h3>Сумасшедший дом</h3>
-                        <p>Пациент</p>
-                        <p>2025 — настоящее время</p>
-                    </li>
-                </ul>
+            <section id="experience" class="experience">
+                <div class="container">
+                    <h2 class="experience__title">Опыт работы</h2>
+                    <div class="exprerience__wrapper">
+                        <ul class="experience__list">
+                            <li class="experience__item">
+                                <h3 class="experience__company">
+                                    ООО "Рога и Копыта"
+                                </h3>
+                                <p class="experience__position">
+                                    Junior Frontend-разработчик
+                                </p>
+                                <p class="experience__period">
+                                    <time datetime="2020">2020</time> —
+                                    <time datetime="2022">2022</time>
+                                </p>
+                            </li>
+                            <li class="experience__item">
+                                <h3 class="experience__company">Яндекс</h3>
+                                <p class="experience__position">
+                                    Middle Frontend-разработчик
+                                </p>
+                                <p class="experience__period">
+                                    <time datetime="2022">2022</time> —
+                                    <time datetime="2025">2025</time>
+                                </p>
+                            </li>
+                            <li class="experience__item">
+                                <h3 class="experience__company">
+                                    Сумасшедший дом
+                                </h3>
+                                <p class="experience__position">Пациент</p>
+                                <p class="experience__period">
+                                    2025 — настоящее время
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </section>
 
-            <section id="skills">
-                <h2>Навыки</h2>
-                <ul>
-                    <li>
-                        Фронтенд
-                        <ul>
-                            <li>HTML</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Инструменты
-                        <ul>
-                            <li>Git</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Языки
-                        <ul>
-                            <li>Русский — Носитель</li>
-                            <li>English — Intermediate</li>
-                        </ul>
-                    </li>
-                </ul>
+            <section id="skills" class="skills">
+                <div class="container">
+                    <h2 class="skills__title">Навыки</h2>
+                    <ul class="skills__list">
+                        <li class="skills__category">
+                            <h3 class="skills__subtitle">Фронтенд</h3>
+                            <ul class="skills__sublist">
+                                <li class="skills__item">HTML</li>
+                                <li class="skills__item">CSS</li>
+                            </ul>
+                        </li>
+                        <li class="skills__category">
+                            <h3 class="skills__subtitle">Инструменты</h3>
+                            <ul class="skills_sublist">
+                                <li class="skills__item">Git</li>
+                            </ul>
+                        </li>
+                        <li class="skills__category">
+                            <h3 class="skills__subtitle">Языки</h3>
+                            <ul class="skills__sublist">
+                                <li class="skills__item">Русский — Носитель</li>
+                                <li class="skills__item">
+                                    English — Intermediate
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </section>
 
-            <section id="contacts">
-                <h2>Контакты</h2>
-                <ul>
-                    <li>
-                        <h3>Телефон</h3>
-                        <a href="tel:+78001007010">8 800 100-70-10</a>
-                    </li>
-                    <li>
-                        <h3>Эл. почта</h3>
-                        <a href="mailto:sonanted@protonmail.com"
-                            >sonanted@protonmail.com</a
-                        >
-                    </li>
-                    <li>
-                        <h3>Телега</h3>
-                        <a href="https://t.me/sonanted" target="_blank"
-                            >@sonanted</a
-                        >
-                    </li>
-                </ul>
+            <section id="contacts" class="contacts">
+                <div class="container">
+                    <h2 class="contacts__title">Контакты</h2>
+                    <ul class="contacts__list">
+                        <li class="contacts__item">
+                            <h3 class="contacts__subtitle">Телефон</h3>
+                            <a class="contacts__link" href="tel:+78001007010"
+                                >8 (800) 100-70-10</a
+                            >
+                        </li>
+                        <li class="contacts__item">
+                            <h3 class="contacts__subtitle">Эл. почта</h3>
+                            <a
+                                class="contacts__link"
+                                href="mailto:sonantedd@gmail.com"
+                                >sonantedd@gmail.com</a
+                            >
+                        </li>
+                        <li class="contacts__item">
+                            <h3 class="contacts__subtitle">GitHub</h3>
+                            <a
+                                class="contacts__link"
+                                href="https://github.com/sonantedd"
+                                target="_blank"
+                                >/sonantedd</a
+                            >
+                        </li>
+                        <li class="contacts__item">
+                            <h3 class="contacts__subtitle">Telegram</h3>
+                            <a
+                                class="contacts__link"
+                                href="https://t.me/sonanted"
+                                target="_blank"
+                                >@sonanted</a
+                            >
+                        </li>
+                    </ul>
+                </div>
             </section>
         </main>
-        <footer>&copy; Sonantedd. 2025.</footer>
+        <footer class="footer">
+            <span class="footer__copyright">&copy;</span> Sonantedd. 2025.
+        </footer>
     </body>
 </html>
