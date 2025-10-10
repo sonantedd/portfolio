@@ -1,0 +1,179 @@
+.container {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+.header {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    inset-block-start: 0;
+    backdrop-filter: blur(12px);
+    background: var(--crust50);
+    border-block-end: 2px solid var(--crust);
+}
+
+.header__nav {
+    padding: 1rem;
+}
+
+.header__nav-list {
+    display: flex;
+    column-gap: 2rem;
+    row-gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero {
+    block-size: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero__title {
+    margin-block-end: 1rem;
+    font-size: clamp(1.5rem, 6vw, 3rem);
+}
+
+.hero__title-accent {
+    color: var(--maroon);
+}
+
+.hero__subtitle {
+    font-size: clamp(0.75rem, 3vw, 1.5rem);
+}
+
+.about__content {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.about__content-avatar {
+    height: 256px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.about__content-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.about__content-item {
+    display: flex;
+    gap: 0.5rem;
+    margin-block-end: 0.75rem;
+}
+
+.about__content-item::before {
+    content: ">";
+    color: var(--maroon);
+}
+
+.exprerience__wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.experience__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.experience__item {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 0.5rem;
+}
+
+.experience__company {
+    color: var(--maroon);
+}
+
+.experience__period {
+    color: var(--subtext);
+}
+
+.skills__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-around;
+    row-gap: 2rem;
+}
+
+.skills__category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skills__subtitle {
+    margin-block-end: 0.5rem;
+    color: var(--maroon);
+}
+
+.skills__sublist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contacts__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.contacts__item {
+    text-align: center;
+}
+
+.contacts__subtitle {
+    margin-block-end: 0.5rem;
+    color: var(--maroon);
+}
+
+.footer {
+    padding: 1rem;
+    text-align: center;
+    border-block-start: 2px solid var(--crust);
+    background: var(--mantle);
+}
+
+.footer__copyright {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        max-width: 380px;
+    }
+
+    .header__nav-list {
+        flex-wrap: wrap;
+    }
+
+    .about__content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skills__list {
+        grid-template-columns: 1fr;
+    }
+
+    .contacts__list {
+        grid-template-columns: 1fr;
+    }
+}
