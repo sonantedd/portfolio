@@ -1,4 +1,6 @@
 @import url("./fonts.css");
 @import url("./variables.css");
 @import url("./global.css");
+@import url("./themes/main.css");
+@import url("./components/main.css");
 @import url("./style.css");

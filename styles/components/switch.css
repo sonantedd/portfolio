@@ -1,0 +1,40 @@
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: var(--text);
+    transition: transform 0.4s;
+    border-radius: 34px;
+    box-sizing: border-box;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    background-image: url("../../assets/images/svg/moon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    transition: transform 0.4s;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+    background-image: url("../../assets/images/svg/sun.svg");
+}

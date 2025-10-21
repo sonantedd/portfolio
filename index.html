@@ -5,8 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./styles/main.css" />
         <title>Sonantedd</title>
+        <script src="./scripts/theme.js" defer></script>
+        <script src="./scripts/index.js"></script>
     </head>
-    <body>
+    <body class="light">
         <header class="header">
             <nav class="header__nav" aria-label="Навигация">
                 <ul class="header__nav-list">
@@ -14,26 +16,27 @@
                         <a href="#about" class="header__nav-link">Обо мне</a>
                     </li>
                     <li class="header__nav-item">
-                        <a href="#experience" class="header__nav-link"
-                            >Опыт работы</a
-                        >
+                        <a href="#experience" class="header__nav-link">Опыт работы</a>
                     </li>
                     <li class="header__nav-item">
                         <a href="#skills" class="header__nav-link">Навыки</a>
                     </li>
                     <li class="header__nav-item">
-                        <a href="#contacts" class="header__nav-link"
-                            >Контакты</a
-                        >
+                        <a href="#contacts" class="header__nav-link">Контакты</a>
                     </li>
                 </ul>
             </nav>
+            <label class="switch">
+                <input id="theme" type="checkbox" />
+                <span class="slider"></span>
+            </label>
         </header>
+
         <main id="main">
             <section id="hero" class="hero">
                 <h1 class="hero__title">
-                    <span class="hero__title-accent">&lt;h1&gt;</span>Hello,
-                    world!<span class="hero__title-accent"
+                    <span class="hero__title-accent">&lt;h1&gt;</span>Hello, world!<span
+                        class="hero__title-accent"
                         >&lt;&sol;h1&gt;</span
                     >
                 </h1>
@@ -45,21 +48,15 @@
                     <div class="about__content">
                         <img
                             class="about__content-avatar"
-                            src="./assets/avatar.jpg"
-                            alt="моська Sonantedd"
+                            src="./assets/images/jpg/avatar.jpg"
+                            alt="лицо Sonantedd"
                             loading="lazy"
                         />
                         <ul class="about__content-list">
-                            <li class="about__content-item">
-                                Фронтенд-разработчик
-                            </li>
+                            <li class="about__content-item">Фронтенд-разработчик</li>
                             <li class="about__content-item">Из Москвы</li>
-                            <li class="about__content-item">
-                                Учусь кодить на сплит клавиатуре
-                            </li>
-                            <li class="about__content-item">
-                                Смотрю Формулу 1
-                            </li>
+                            <li class="about__content-item">Учусь кодить на сплит клавиатуре</li>
+                            <li class="about__content-item">Смотрю Формулу 1</li>
                         </ul>
                     </div>
                 </div>
@@ -71,12 +68,8 @@
                     <div class="exprerience__wrapper">
                         <ul class="experience__list">
                             <li class="experience__item">
-                                <h3 class="experience__company">
-                                    ООО "Рога и Копыта"
-                                </h3>
-                                <p class="experience__position">
-                                    Junior Frontend-разработчик
-                                </p>
+                                <h3 class="experience__company">ООО "Рога и Копыта"</h3>
+                                <p class="experience__position">Junior Frontend-разработчик</p>
                                 <p class="experience__period">
                                     <time datetime="2020">2020</time> —
                                     <time datetime="2022">2022</time>
@@ -84,22 +77,16 @@
                             </li>
                             <li class="experience__item">
                                 <h3 class="experience__company">Яндекс</h3>
-                                <p class="experience__position">
-                                    Middle Frontend-разработчик
-                                </p>
+                                <p class="experience__position">Middle Frontend-разработчик</p>
                                 <p class="experience__period">
                                     <time datetime="2022">2022</time> —
                                     <time datetime="2025">2025</time>
                                 </p>
                             </li>
                             <li class="experience__item">
-                                <h3 class="experience__company">
-                                    Сумасшедший дом
-                                </h3>
+                                <h3 class="experience__company">Сумасшедший дом</h3>
                                 <p class="experience__position">Пациент</p>
-                                <p class="experience__period">
-                                    2025 — настоящее время
-                                </p>
+                                <p class="experience__period">2025 — настоящее время</p>
                             </li>
                         </ul>
                     </div>
@@ -127,9 +114,7 @@
                             <h3 class="skills__subtitle">Языки</h3>
                             <ul class="skills__sublist">
                                 <li class="skills__item">Русский — Носитель</li>
-                                <li class="skills__item">
-                                    English — Intermediate
-                                </li>
+                                <li class="skills__item">English — Intermediate</li>
                             </ul>
                         </li>
                     </ul>
@@ -142,15 +127,11 @@
                     <ul class="contacts__list">
                         <li class="contacts__item">
                             <h3 class="contacts__subtitle">Телефон</h3>
-                            <a class="contacts__link" href="tel:+78001007010"
-                                >8 (800) 100-70-10</a
-                            >
+                            <a class="contacts__link" href="tel:+78001007010">8 (800) 100-70-10</a>
                         </li>
                         <li class="contacts__item">
                             <h3 class="contacts__subtitle">Эл. почта</h3>
-                            <a
-                                class="contacts__link"
-                                href="mailto:sonantedd@gmail.com"
+                            <a class="contacts__link" href="mailto:sonantedd@gmail.com"
                                 >sonantedd@gmail.com</a
                             >
                         </li>
@@ -165,10 +146,7 @@
                         </li>
                         <li class="contacts__item">
                             <h3 class="contacts__subtitle">Telegram</h3>
-                            <a
-                                class="contacts__link"
-                                href="https://t.me/sonanted"
-                                target="_blank"
+                            <a class="contacts__link" href="https://t.me/sonanted" target="_blank"
                                 >@sonanted</a
                             >
                         </li>

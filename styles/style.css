@@ -8,6 +8,7 @@
     position: fixed;
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
     inset-block-start: 0;
     backdrop-filter: blur(12px);
@@ -100,7 +101,7 @@
 }
 
 .experience__period {
-    color: var(--subtext);
+    color: var(--subtext-0);
 }
 
 .skills__list {
