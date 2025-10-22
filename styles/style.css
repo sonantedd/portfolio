@@ -47,6 +47,11 @@
 
 .hero__subtitle {
     font-size: clamp(0.75rem, 3vw, 1.5rem);
+    margin-block-end: 1rem;
+}
+
+.hero__subtitle-greetings {
+    color: var(--subtext-0);
 }
 
 .about__content {

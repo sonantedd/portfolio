@@ -1,0 +1,2 @@
+renderExperience();
+renderSkills();
