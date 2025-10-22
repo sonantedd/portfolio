@@ -8,7 +8,8 @@
         <script src="./scripts/data.js" defer></script>
         <script src="./scripts/experienceCard.js" defer></script>
         <script src="./scripts/skillsCard.js" defer></script>
-        <script src="./scripts/time.js" defer></script>
+        <script src="./scripts/tooltip.js" defer></script>
+        <script src="./scripts/greeting.js" defer></script>
         <script src="./scripts/theme.js" defer></script>
         <script src="./scripts/index.js" defer></script>
     </head>
@@ -28,24 +29,22 @@
                     <li class="header__nav-item">
                         <a href="#contacts" class="header__nav-link">Контакты</a>
                     </li>
+                    <label class="switch">
+                        <input id="theme" type="checkbox" />
+                        <span class="slider"></span>
+                    </label>
                 </ul>
             </nav>
-            <label class="switch">
-                <input id="theme" type="checkbox" />
-                <span class="slider"></span>
-            </label>
         </header>
 
         <main id="main">
             <section id="hero" class="hero">
                 <h1 class="hero__title">
-                    <span class="hero__title-accent">&lt;h1&gt;</span>Hello, world!<span
-                        class="hero__title-accent"
-                        >&lt;&sol;h1&gt;</span
-                    >
+                    <span class="hero__title-accent">&lt;h1&gt;</span
+                    ><span class="hero__title-content"></span
+                    ><span class="hero__title-accent">&lt;&sol;h1&gt;</span>
                 </h1>
                 <p class="hero__subtitle">Portfolio by Sonantedd</p>
-                <p class="hero__subtitle-greetings"></p>
             </section>
             <section id="about" class="about">
                 <div class="container">
@@ -60,7 +59,20 @@
                         <ul class="about__content-list">
                             <li class="about__content-item">Фронтенд-разработчик</li>
                             <li class="about__content-item">Из Москвы</li>
-                            <li class="about__content-item">Учусь кодить на сплит клавиатуре</li>
+                            <li class="about__content-item">
+                                <div class="tooltip-container">
+                                    <p class="tooltip-text">
+                                        Учусь кодить на
+                                        <span class="tooltip-trigger" role="tooltip">сплит</span>
+                                        клавиатуре
+                                    </p>
+                                    <div class="tooltip-content">
+                                        <img src="./assets/images/jpg/keyboard.jpg" alt="image" />
+                                        <p>Клавиатура, разделенная на 2 части</p>
+                                    </div>
+                                </div>
+                            </li>
+
                             <li class="about__content-item">Смотрю Формулу 1</li>
                         </ul>
                     </div>

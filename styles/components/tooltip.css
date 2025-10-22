@@ -1,0 +1,34 @@
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-trigger {
+    border-block-end: 2px dashed var(--maroon);
+    cursor: pointer;
+}
+
+.tooltip-content {
+    position: absolute;
+    left: 25%;
+    display: none;
+    background: var(--base);
+    border: 0.125rem solid var(--text);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    width: 200px;
+    text-align: center;
+    z-index: 2;
+}
+
+.tooltip-content.top {
+    bottom: 130%;
+}
+
+.tooltip-content.bottom {
+    top: 150%;
+}
+
+.tooltip-container:hover .tooltip-content {
+    display: block;
+}
