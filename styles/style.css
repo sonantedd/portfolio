@@ -83,12 +83,14 @@
     color: var(--maroon);
 }
 
-.exprerience__wrapper {
+.exprerience__wrapper,
+.github__wrapper {
     display: flex;
     justify-content: center;
 }
 
-.experience__list {
+.experience__list,
+.github__list {
     display: flex;
     flex-direction: column;
     row-gap: 2rem;
@@ -107,6 +109,23 @@
 
 .experience__period {
     color: var(--subtext-0);
+}
+
+.github__repo-stars {
+    font-weight: bold;
+    font-size: 1.17rem;
+    display: inline-block;
+    margin-block-end: 0.25rem;
+}
+
+.github__repo-description {
+    margin-block-end: 0.5rem;
+    color: var(--subtext-0);
+}
+
+.github__repo-tags {
+    display: flex;
+    gap: 0.5rem;
 }
 
 .skills__list {

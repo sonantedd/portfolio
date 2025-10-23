@@ -8,6 +8,7 @@
         <script src="./scripts/data.js" defer></script>
         <script src="./scripts/experience.js" defer></script>
         <script src="./scripts/skills.js" defer></script>
+        <script src="./scripts/github.js" defer></script>
         <script src="./scripts/tooltip.js" defer></script>
         <script src="./scripts/greeting.js" defer></script>
         <script src="./scripts/theme.js" defer></script>
@@ -44,7 +45,7 @@
                     ><span class="hero__title-content"></span
                     ><span class="hero__title-accent">&lt;&sol;h1&gt;</span>
                 </h1>
-                <p class="hero__subtitle">Portfolio by Sonantedd</p>
+                <p class="hero__subtitle">Sonantedd, Frontend Dev</p>
             </section>
             <section id="about" class="about">
                 <div class="container">
@@ -57,8 +58,8 @@
                             loading="lazy"
                         />
                         <ul class="about__content-list">
-                            <li class="about__content-item">Фронтенд-разработчик</li>
                             <li class="about__content-item">Из Москвы</li>
+                            <li class="about__content-item">Студент МИСИС</li>
                             <li class="about__content-item">
                                 <div class="tooltip-container">
                                     <p class="tooltip-text">
@@ -92,6 +93,15 @@
                 <div class="container">
                     <h2 class="skills__title">Навыки</h2>
                     <ul class="skills__list"></ul>
+                </div>
+            </section>
+
+            <section id="github" class="github">
+                <div class="container">
+                    <h2 class="github__title">Проекты</h2>
+                    <div class="github__wrapper">
+                        <ul class="github__list"></ul>
+                    </div>
                 </div>
             </section>
 
@@ -146,6 +156,23 @@
                 <ul class="skills__sublist">
                     <li class="skills__item"></li>
                 </ul>
+            </li>
+        </template>
+
+        <template class="github__template">
+            <li class="github__item">
+                <a class="github__item-link" target="_blank">
+                    <div class="github__repo">
+                        <h3 class="github__repo-name"></h3>
+                        <span class="github__repo-stars">&#x2B50;</span>
+                        <p class="github__repo-description"></p>
+                        <ul class="github__repo-tags">
+                            <!-- <li class="github__repo-tag tag html"></li>
+                            <li class="github__repo-tag tag css"></li>
+                            <li class="github__repo-tag tag js"></li> -->
+                        </ul>
+                    </div>
+                </a>
             </li>
         </template>
     </body>

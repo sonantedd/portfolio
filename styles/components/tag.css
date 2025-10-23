@@ -1,0 +1,17 @@
+.tag {
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+    color: var(--base);
+}
+
+.tag.html {
+    background-color: var(--peach);
+}
+
+.tag.css {
+    background-color: var(--sapphire);
+}
+
+.tag.js {
+    background-color: var(--yellow);
+}
