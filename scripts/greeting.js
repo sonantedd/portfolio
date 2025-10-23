@@ -1,6 +1,5 @@
 const getDayPeriod = () => {
     const hours = new Date().getHours();
-    console.log(hours);
 
     if (0 <= hours && hours < 6) {
         return "Good night";
