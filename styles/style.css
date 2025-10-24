@@ -8,11 +8,12 @@
     position: fixed;
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
     inset-block-start: 0;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(0.5rem);
     background: var(--crust50);
-    border-block-end: 2px solid var(--crust);
+    border-block-end: 0.125rem solid var(--crust);
 }
 
 .header__nav {
@@ -37,7 +38,7 @@
 
 .hero__title {
     margin-block-end: 1rem;
-    font-size: clamp(1.5rem, 6vw, 3rem);
+    font-size: clamp(1rem, 5vw, 3rem);
 }
 
 .hero__title-accent {
@@ -45,7 +46,12 @@
 }
 
 .hero__subtitle {
-    font-size: clamp(0.75rem, 3vw, 1.5rem);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    margin-block-end: 1rem;
+}
+
+.hero__subtitle-greetings {
+    color: var(--subtext-0);
 }
 
 .about__content {
@@ -77,15 +83,25 @@
     color: var(--maroon);
 }
 
-.exprerience__wrapper {
+.exprerience__wrapper,
+.projects__wrapper {
     display: flex;
     justify-content: center;
 }
 
-.experience__list {
+.experience__list,
+.projects__list {
     display: flex;
     flex-direction: column;
     row-gap: 2rem;
+    padding: 2rem;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-block-start: 0.125rem solid var(--crust);
+    border-block-end: 0.125rem solid var(--crust);
+
+    white-space: normal;
 }
 
 .experience__item {
@@ -100,7 +116,24 @@
 }
 
 .experience__period {
-    color: var(--subtext);
+    color: var(--subtext-0);
+}
+
+.projects__repo-stars {
+    font-weight: bold;
+    font-size: 1.17rem;
+    display: inline-block;
+    margin-block-end: 0.25rem;
+}
+
+.projects__repo-description {
+    margin-block-end: 0.5rem;
+    color: var(--subtext-0);
+}
+
+.projects__repo-tags {
+    display: flex;
+    gap: 0.5rem;
 }
 
 .skills__list {
@@ -128,11 +161,19 @@
     gap: 0.5rem;
 }
 
+.footer {
+    padding: 1rem;
+    text-align: center;
+    border-block-start: 0.125rem solid var(--crust);
+    background: var(--mantle);
+}
+
 .contacts__list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     gap: 2rem;
+    margin-bottom: 2rem;
 }
 
 .contacts__item {
@@ -142,13 +183,6 @@
 .contacts__subtitle {
     margin-block-end: 0.5rem;
     color: var(--maroon);
-}
-
-.footer {
-    padding: 1rem;
-    text-align: center;
-    border-block-start: 2px solid var(--crust);
-    background: var(--mantle);
 }
 
 .footer__copyright {
@@ -174,6 +208,7 @@
     }
 
     .contacts__list {
+        display: grid;
         grid-template-columns: 1fr;
     }
 }

@@ -3,10 +3,20 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./styles/main.css" />
+        <link rel="stylesheet" href="./styles/index.css" />
         <title>Sonantedd</title>
+        <script src="./scripts/core/data.js" defer></script>
+        <script src="./scripts/core/cookie.js"></script>
+        <script src="./scripts/components/experience.js" defer></script>
+        <script src="./scripts/components/skills.js" defer></script>
+        <script src="./scripts/components/github.js" defer></script>
+        <script src="./scripts/components/contacts.js" defer></script>
+        <script src="./scripts/ui/tooltip.js" defer></script>
+        <script src="./scripts/ui/greeting.js" defer></script>
+        <script src="./scripts/ui/theme.js" defer></script>
+        <script src="./scripts/index.js" defer></script>
     </head>
-    <body>
+    <body class="light">
         <header class="header">
             <nav class="header__nav" aria-label="Навигация">
                 <ul class="header__nav-list">
@@ -14,30 +24,30 @@
                         <a href="#about" class="header__nav-link">Обо мне</a>
                     </li>
                     <li class="header__nav-item">
-                        <a href="#experience" class="header__nav-link"
-                            >Опыт работы</a
-                        >
+                        <a href="#experience" class="header__nav-link">Опыт работы</a>
                     </li>
                     <li class="header__nav-item">
                         <a href="#skills" class="header__nav-link">Навыки</a>
                     </li>
                     <li class="header__nav-item">
-                        <a href="#contacts" class="header__nav-link"
-                            >Контакты</a
-                        >
+                        <a href="#projects" class="header__nav-link">Проекты</a>
                     </li>
+                    <label class="switch">
+                        <input id="theme" type="checkbox" />
+                        <span class="slider"></span>
+                    </label>
                 </ul>
             </nav>
         </header>
+
         <main id="main">
             <section id="hero" class="hero">
                 <h1 class="hero__title">
-                    <span class="hero__title-accent">&lt;h1&gt;</span>Hello,
-                    world!<span class="hero__title-accent"
-                        >&lt;&sol;h1&gt;</span
-                    >
+                    <span class="hero__title-accent">&lt;h1&gt;</span
+                    ><span class="hero__title-content"></span
+                    ><span class="hero__title-accent">&lt;&sol;h1&gt;</span>
                 </h1>
-                <p class="hero__subtitle">Sonantedd, Frontend-разработчик</p>
+                <p class="hero__subtitle">Sonantedd, Frontend Dev</p>
             </section>
             <section id="about" class="about">
                 <div class="container">
@@ -45,21 +55,28 @@
                     <div class="about__content">
                         <img
                             class="about__content-avatar"
-                            src="./assets/avatar.jpg"
-                            alt="моська Sonantedd"
+                            src="./assets/images/jpg/avatar.jpg"
+                            alt="лицо Sonantedd"
                             loading="lazy"
                         />
                         <ul class="about__content-list">
-                            <li class="about__content-item">
-                                Фронтенд-разработчик
-                            </li>
                             <li class="about__content-item">Из Москвы</li>
+                            <li class="about__content-item">Студент МИСИС</li>
                             <li class="about__content-item">
-                                Учусь кодить на сплит клавиатуре
+                                <div class="tooltip-container">
+                                    <p class="tooltip-text">
+                                        Учусь кодить на
+                                        <span class="tooltip-trigger" role="tooltip">сплит</span>
+                                        клавиатуре
+                                    </p>
+                                    <div class="tooltip-content">
+                                        <img src="./assets/images/jpg/keyboard.jpg" alt="image" />
+                                        <p>Клавиатура, разделенная на 2 части</p>
+                                    </div>
+                                </div>
                             </li>
-                            <li class="about__content-item">
-                                Смотрю Формулу 1
-                            </li>
+
+                            <li class="about__content-item">Смотрю Формулу 1</li>
                         </ul>
                     </div>
                 </div>
@@ -69,39 +86,7 @@
                 <div class="container">
                     <h2 class="experience__title">Опыт работы</h2>
                     <div class="exprerience__wrapper">
-                        <ul class="experience__list">
-                            <li class="experience__item">
-                                <h3 class="experience__company">
-                                    ООО "Рога и Копыта"
-                                </h3>
-                                <p class="experience__position">
-                                    Junior Frontend-разработчик
-                                </p>
-                                <p class="experience__period">
-                                    <time datetime="2020">2020</time> —
-                                    <time datetime="2022">2022</time>
-                                </p>
-                            </li>
-                            <li class="experience__item">
-                                <h3 class="experience__company">Яндекс</h3>
-                                <p class="experience__position">
-                                    Middle Frontend-разработчик
-                                </p>
-                                <p class="experience__period">
-                                    <time datetime="2022">2022</time> —
-                                    <time datetime="2025">2025</time>
-                                </p>
-                            </li>
-                            <li class="experience__item">
-                                <h3 class="experience__company">
-                                    Сумасшедший дом
-                                </h3>
-                                <p class="experience__position">Пациент</p>
-                                <p class="experience__period">
-                                    2025 — настоящее время
-                                </p>
-                            </li>
-                        </ul>
+                        <ul class="experience__list"></ul>
                     </div>
                 </div>
             </section>
@@ -109,75 +94,66 @@
             <section id="skills" class="skills">
                 <div class="container">
                     <h2 class="skills__title">Навыки</h2>
-                    <ul class="skills__list">
-                        <li class="skills__category">
-                            <h3 class="skills__subtitle">Фронтенд</h3>
-                            <ul class="skills__sublist">
-                                <li class="skills__item">HTML</li>
-                                <li class="skills__item">CSS</li>
-                            </ul>
-                        </li>
-                        <li class="skills__category">
-                            <h3 class="skills__subtitle">Инструменты</h3>
-                            <ul class="skills_sublist">
-                                <li class="skills__item">Git</li>
-                            </ul>
-                        </li>
-                        <li class="skills__category">
-                            <h3 class="skills__subtitle">Языки</h3>
-                            <ul class="skills__sublist">
-                                <li class="skills__item">Русский — Носитель</li>
-                                <li class="skills__item">
-                                    English — Intermediate
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <ul class="skills__list"></ul>
                 </div>
             </section>
 
-            <section id="contacts" class="contacts">
+            <section id="projects" class="projects">
                 <div class="container">
-                    <h2 class="contacts__title">Контакты</h2>
-                    <ul class="contacts__list">
-                        <li class="contacts__item">
-                            <h3 class="contacts__subtitle">Телефон</h3>
-                            <a class="contacts__link" href="tel:+78001007010"
-                                >8 (800) 100-70-10</a
-                            >
-                        </li>
-                        <li class="contacts__item">
-                            <h3 class="contacts__subtitle">Эл. почта</h3>
-                            <a
-                                class="contacts__link"
-                                href="mailto:sonantedd@gmail.com"
-                                >sonantedd@gmail.com</a
-                            >
-                        </li>
-                        <li class="contacts__item">
-                            <h3 class="contacts__subtitle">GitHub</h3>
-                            <a
-                                class="contacts__link"
-                                href="https://github.com/sonantedd"
-                                target="_blank"
-                                >/sonantedd</a
-                            >
-                        </li>
-                        <li class="contacts__item">
-                            <h3 class="contacts__subtitle">Telegram</h3>
-                            <a
-                                class="contacts__link"
-                                href="https://t.me/sonanted"
-                                target="_blank"
-                                >@sonanted</a
-                            >
-                        </li>
-                    </ul>
+                    <h2 class="projects__title">Проекты</h2>
+                    <div class="projects__search-wrapper">
+                        <input
+                            class="projects__search-input"
+                            type="search"
+                            placeholder="Ищите по названию или описанию"
+                        />
+                    </div>
+                    <div class="projects__wrapper">
+                        <ul class="projects__list"></ul>
+                    </div>
                 </div>
             </section>
         </main>
         <footer class="footer">
+            <ul class="contacts__list"></ul>
             <span class="footer__copyright">&copy;</span> Sonantedd. 2025.
         </footer>
+
+        <template class="experience__template">
+            <li class="experience__item">
+                <h3 class="experience__company"></h3>
+                <p class="experience__position"></p>
+                <p class="experience__period"><time></time> — <time></time></p>
+            </li>
+        </template>
+
+        <template class="skills__template">
+            <li class="skills__category">
+                <h3 class="skills__subtitle"></h3>
+                <ul class="skills__sublist">
+                    <li class="skills__item"></li>
+                </ul>
+            </li>
+        </template>
+
+        <template class="projects__template">
+            <li class="projects__item">
+                <a class="projects__item-link" target="_blank">
+                    <div class="projects__repo">
+                        <h3 class="projects__repo-name"></h3>
+                        <span class="projects__repo-stars"></span>
+                        <p class="projects__repo-description"></p>
+                        <ul class="projects__repo-tags"></ul>
+                    </div>
+                </a>
+            </li>
+        </template>
+
+        <template class="contacts__template">
+            <li class="contacts__item">
+                <h3 class="contacts__subtitle"></h3>
+                <a class="contacts__link" target="_blank"></a>
+            </li>
+        </template>
     </body>
 </html>

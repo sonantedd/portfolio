@@ -1,0 +1,4 @@
+renderExperience();
+renderSkills();
+initRepos();
+renderContacts();

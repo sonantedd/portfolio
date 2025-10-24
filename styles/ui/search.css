@@ -1,0 +1,31 @@
+.projects__search-input {
+    width: 100%;
+    background-color: transparent;
+    border: 0.125rem solid var(--text);
+    color: var(--text);
+    padding: 0.5rem;
+    font-size: inherit;
+    font-family: inherit;
+    border-radius: 0.25rem;
+}
+
+.projects__search-wrapper {
+    width: min(50%, 90vw);
+    display: block;
+    margin: 0 auto 2rem;
+    position: relative;
+}
+
+.projects__search-wrapper::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background: var(--search-icon) no-repeat center;
+    background-size: contain;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}

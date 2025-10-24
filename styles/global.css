@@ -1,9 +1,12 @@
 html {
+    font-size: var(--font-size);
+    scroll-behavior: smooth;
+}
+
+body {
     color: var(--text);
     font-family: "Roboto Mono";
     background-color: var(--base);
-    font-size: var(--font-size);
-    scroll-behavior: smooth;
 }
 
 * {
@@ -28,6 +31,7 @@ a {
     text-decoration: none;
     color: inherit;
     transition: color 0.2s;
+    cursor: pointer;
 }
 
 a:hover {
