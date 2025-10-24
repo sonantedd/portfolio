@@ -5,13 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./styles/index.css" />
         <title>Sonantedd</title>
-        <script src="./scripts/data.js" defer></script>
-        <script src="./scripts/experience.js" defer></script>
-        <script src="./scripts/skills.js" defer></script>
-        <script src="./scripts/github.js" defer></script>
-        <script src="./scripts/tooltip.js" defer></script>
-        <script src="./scripts/greeting.js" defer></script>
-        <script src="./scripts/theme.js" defer></script>
+        <script src="./scripts/core/data.js" defer></script>
+        <script src="./scripts/core/cookie.js"></script>
+        <script src="./scripts/components/experience.js" defer></script>
+        <script src="./scripts/components/skills.js" defer></script>
+        <script src="./scripts/components/github.js" defer></script>
+        <script src="./scripts/components/contacts.js" defer></script>
+        <script src="./scripts/ui/tooltip.js" defer></script>
+        <script src="./scripts/ui/greeting.js" defer></script>
+        <script src="./scripts/ui/theme.js" defer></script>
         <script src="./scripts/index.js" defer></script>
     </head>
     <body class="light">
@@ -28,7 +30,7 @@
                         <a href="#skills" class="header__nav-link">Навыки</a>
                     </li>
                     <li class="header__nav-item">
-                        <a href="#contacts" class="header__nav-link">Контакты</a>
+                        <a href="#projects" class="header__nav-link">Проекты</a>
                     </li>
                     <label class="switch">
                         <input id="theme" type="checkbox" />
@@ -96,49 +98,24 @@
                 </div>
             </section>
 
-            <section id="github" class="github">
+            <section id="projects" class="projects">
                 <div class="container">
-                    <h2 class="github__title">Проекты</h2>
-                    <div class="github__wrapper">
-                        <ul class="github__list"></ul>
+                    <h2 class="projects__title">Проекты</h2>
+                    <div class="projects__search-wrapper">
+                        <input
+                            class="projects__search-input"
+                            type="search"
+                            placeholder="Ищите по названию или описанию"
+                        />
                     </div>
-                </div>
-            </section>
-
-            <section id="contacts" class="contacts">
-                <div class="container">
-                    <h2 class="contacts__title">Контакты</h2>
-                    <ul class="contacts__list">
-                        <li class="contacts__item">
-                            <h3 class="contacts__subtitle">Телефон</h3>
-                            <a class="contacts__link" href="tel:+78001007010">8 (800) 100-70-10</a>
-                        </li>
-                        <li class="contacts__item">
-                            <h3 class="contacts__subtitle">Эл. почта</h3>
-                            <a class="contacts__link" href="mailto:sonantedd@gmail.com"
-                                >sonantedd@gmail.com</a
-                            >
-                        </li>
-                        <li class="contacts__item">
-                            <h3 class="contacts__subtitle">GitHub</h3>
-                            <a
-                                class="contacts__link"
-                                href="https://github.com/sonantedd"
-                                target="_blank"
-                                >/sonantedd</a
-                            >
-                        </li>
-                        <li class="contacts__item">
-                            <h3 class="contacts__subtitle">Telegram</h3>
-                            <a class="contacts__link" href="https://t.me/sonanted" target="_blank"
-                                >@sonanted</a
-                            >
-                        </li>
-                    </ul>
+                    <div class="projects__wrapper">
+                        <ul class="projects__list"></ul>
+                    </div>
                 </div>
             </section>
         </main>
         <footer class="footer">
+            <ul class="contacts__list"></ul>
             <span class="footer__copyright">&copy;</span> Sonantedd. 2025.
         </footer>
 
@@ -159,20 +136,23 @@
             </li>
         </template>
 
-        <template class="github__template">
-            <li class="github__item">
-                <a class="github__item-link" target="_blank">
-                    <div class="github__repo">
-                        <h3 class="github__repo-name"></h3>
-                        <span class="github__repo-stars">&#x2B50;</span>
-                        <p class="github__repo-description"></p>
-                        <ul class="github__repo-tags">
-                            <!-- <li class="github__repo-tag tag html"></li>
-                            <li class="github__repo-tag tag css"></li>
-                            <li class="github__repo-tag tag js"></li> -->
-                        </ul>
+        <template class="projects__template">
+            <li class="projects__item">
+                <a class="projects__item-link" target="_blank">
+                    <div class="projects__repo">
+                        <h3 class="projects__repo-name"></h3>
+                        <span class="projects__repo-stars"></span>
+                        <p class="projects__repo-description"></p>
+                        <ul class="projects__repo-tags"></ul>
                     </div>
                 </a>
+            </li>
+        </template>
+
+        <template class="contacts__template">
+            <li class="contacts__item">
+                <h3 class="contacts__subtitle"></h3>
+                <a class="contacts__link" target="_blank"></a>
             </li>
         </template>
     </body>

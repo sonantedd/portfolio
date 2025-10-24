@@ -29,4 +29,6 @@
 
     /* custom */
     --crust50: #18192650;
+    --theme-icon: url("../../assets/images/svg/dark.svg");
+    --search-icon: url("../../assets/images/svg/search_dark.svg");
 }

@@ -1,3 +1,4 @@
 renderExperience();
 renderSkills();
-renderRepos();
+initRepos();
+renderContacts();

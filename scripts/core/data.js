@@ -48,32 +48,33 @@ const skillsData = [
     },
 ];
 
-const githubData = [
+contactsData = [
     {
-        name: "js-assignments",
-        description: null,
-        languages: { JavaScript: 2045, HTML: 285 },
-        url: "https://github.com/sonantedd/js-assignments",
-        stargazers_count: 0,
+        title: "Телефон",
+        link: {
+            text: "8 (999) 999-99-99",
+            href: "tel:+79999999999",
+        },
     },
     {
-        name: "portfolio",
-        description: null,
-        languages: { HTML: 8621, CSS: 4328 },
-        url: "https://github.com/sonantedd/portfolio",
-        stargazers_count: 1,
+        title: "Эл. почта",
+        link: {
+            text: "sonantedd@gmail.com",
+            href: "mailto:sonantedd@gmail.com",
+        },
     },
     {
-        name: "to-do-list",
-        description: null,
-        languages: {},
-        url: "https://github.com/sonantedd/to-do-list",
-        stargazers_count: 0,
+        title: "GitHub",
+        link: {
+            text: "/sonantedd",
+            href: "https://github.com/sonantedd",
+        },
+    },
+    {
+        title: "Telegram",
+        link: {
+            text: "@sonanted",
+            href: "https://t.me/sonanted",
+        },
     },
 ];
-
-const TAGS_CLASSES = {
-    HTML: "html",
-    CSS: "css",
-    JavaScript: "js",
-};
