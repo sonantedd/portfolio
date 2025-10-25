@@ -1,4 +1,8 @@
-const experienceData = [
+/**
+ * Создает массив с информацией об опыте работы
+ * @returns {{ company: string, position: string, period: { start: number, end?: number }}[]}
+ */
+const getExperienceData = () => [
     {
         company: 'ООО "Рога и Копыта"',
         position: "Junior Frontend-разработчик",
@@ -24,7 +28,11 @@ const experienceData = [
     },
 ];
 
-const skillsData = [
+/**
+ * Создает массив с информацией о контактах
+ * @returns {{ category: string, items: string[] | { name: string, level: string }[]}[]}
+ */
+const getSkillsData = () => [
     {
         category: "Фронтенд",
         items: ["HTML", "CSS", "JavaScript"],
@@ -48,7 +56,11 @@ const skillsData = [
     },
 ];
 
-contactsData = [
+/**
+ * Создает массив с информацией о контактах
+ * @returns {{ title: string, link: { text: string, href: string }}[]}
+ */
+const getContactsData = () => [
     {
         title: "Телефон",
         link: {

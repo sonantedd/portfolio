@@ -14,6 +14,7 @@
     backdrop-filter: blur(0.5rem);
     background: var(--crust50);
     border-block-end: 0.125rem solid var(--crust);
+    z-index: 2;
 }
 
 .header__nav {
@@ -93,6 +94,9 @@
 .projects__list {
     display: flex;
     flex-direction: column;
+}
+
+.projects__list {
     row-gap: 2rem;
     padding: 2rem;
     height: 400px;
@@ -100,7 +104,6 @@
     overflow-x: hidden;
     border-block-start: 0.125rem solid var(--crust);
     border-block-end: 0.125rem solid var(--crust);
-
     white-space: normal;
 }
 
@@ -173,7 +176,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 2rem;
-    margin-bottom: 2rem;
+    margin-block-end: 2rem;
 }
 
 .contacts__item {

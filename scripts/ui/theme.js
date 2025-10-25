@@ -1,12 +1,15 @@
-const switchInput = document.querySelector("#theme");
-const DARK_THEME_SELECTOR = "frappe";
-const LIGHT_THEME_SELECTOR = "latte";
+/**
+ * Обновляет класс темы body элемента в зависимости от состояния тоггла
+ * @param {boolean} checked состояние тоггла
+ */
+const updateTheme = (checked) => {
+    document.body.classList.toggle("frappe", !checked);
+    document.body.classList.toggle("latte", checked);
+};
 
-function updateState(checked) {
-    document.body.classList.toggle(DARK_THEME_SELECTOR, !checked);
-    document.body.classList.toggle(LIGHT_THEME_SELECTOR, checked);
-}
+const initTheme = () => {
+    const switchInput = document.querySelector("#theme");
 
-updateState(switchInput.checked);
-
-switchInput.addEventListener("change", (e) => updateState(e.target.checked));
+    updateTheme(switchInput.checked);
+    switchInput.addEventListener("change", (e) => updateTheme(e.target.checked));
+};
