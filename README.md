@@ -4,8 +4,7 @@
 
 Сайт-визитка, написанная на курсе ITAM "Основы Frontend-разработки". Не использует никаких сборщиков/библиотек/фреймворков, только HTML, CSS и JavaScript. Сайт должен корректно отображаться во всех современных браузерах.
 
- [Задеплоен на GitHub Pages](https://sonantedd.github.io/portfolio/)
- <a href="https://sonantedd.github.io/portfolio/" target="_blank">Задеплоен на GitHub Pages</a>
+[Задеплоен на GitHub Pages](https://sonantedd.github.io/portfolio/)
 
 ## Реализованный функционал:
 
