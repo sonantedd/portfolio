@@ -1,3 +1,7 @@
+/**
+ * Возвращает промежуток дня по времени на компьютере
+ * @returns {string}
+ */
 const getDayPeriod = () => {
     const hours = new Date().getHours();
 
@@ -16,8 +20,14 @@ const getDayPeriod = () => {
     return "Hello";
 };
 
+/**
+ * Возвращает приветственное сообщение с учетом времени на компьютере
+ * @returns {string}
+ */
 const getGreetings = () => {
     return `${getDayPeriod()}, World!`;
 };
 
-document.querySelector(".hero__title-content").textContent = getGreetings();
+const initGreetings = () => {
+    document.querySelector(".hero__title-content").textContent = getGreetings();
+};

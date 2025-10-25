@@ -1,3 +1,9 @@
+/**
+ * Переводит срок жизни кук в значение в милисекундах
+ * @param {number} expiresIn срок жизни куки
+ * @param {'day' | 'hour' | 'minute' | 'second'} expiresPeriod период жизни куки
+ * @returns {number}
+ */
 const getExpiresInMiliseconds = (expiresIn, expiresPeriod) => {
     switch (expiresPeriod) {
         case "day":
@@ -12,6 +18,13 @@ const getExpiresInMiliseconds = (expiresIn, expiresPeriod) => {
     return expiresIn;
 };
 
+/**
+ * Сохраняет куку со сроком жизни
+ * @param {string} name ключ куки
+ * @param {string} value значение куки
+ * @param {number} expiresIn срок жизни куки
+ * @param {'day' | 'hour' | 'minute' | 'second'} expiresPeriod период жизни куки
+ */
 const setCookie = (name, value, expiresIn, expiresPeriod) => {
     const date = new Date();
     const expiresMiliseconds = getExpiresInMiliseconds(expiresIn, expiresPeriod);
@@ -21,6 +34,10 @@ const setCookie = (name, value, expiresIn, expiresPeriod) => {
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
 };
 
+/**
+ * Возвращает объект <ключ_куки>: <значение_куки>
+ * @returns {Object.<string, string>}
+ */
 const getCookies = () => {
     return document.cookie.split("; ").reduce((acc, item) => {
         const [key, value] = item.split("=");

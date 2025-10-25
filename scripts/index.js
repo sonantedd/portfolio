@@ -1,4 +1,8 @@
-renderExperience();
-renderSkills();
+initTheme();
+initTooltip();
+initNavigation();
+initGreetings();
+initExperience();
+initSkills();
 initRepos();
-renderContacts();
+initContacts();

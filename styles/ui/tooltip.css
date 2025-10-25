@@ -1,16 +1,17 @@
 .tooltip-container {
     position: relative;
-    display: inline-block;
+    display: flex;
+    gap: 1ch;
 }
 
 .tooltip-trigger {
-    border-block-end: 2px dashed var(--maroon);
+    border-block-end: 0.125rem dashed var(--maroon);
     cursor: pointer;
 }
 
 .tooltip-content {
     position: absolute;
-    left: 25%;
+    inset-inline-start: 25%;
     display: none;
     background: var(--base);
     border: 0.125rem solid var(--text);
@@ -18,17 +19,16 @@
     border-radius: 0.25rem;
     width: 200px;
     text-align: center;
-    z-index: 2;
 }
 
 .tooltip-content.top {
-    bottom: 130%;
+    inset-block-end: 130%;
 }
 
 .tooltip-content.bottom {
-    top: 150%;
+    inset-block-start: 150%;
 }
 
-.tooltip-container:hover .tooltip-content {
+.tooltip-trigger:hover + .tooltip-content {
     display: block;
 }

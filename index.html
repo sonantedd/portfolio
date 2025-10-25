@@ -6,7 +6,8 @@
         <link rel="stylesheet" href="./styles/index.css" />
         <title>Sonantedd</title>
         <script src="./scripts/core/data.js" defer></script>
-        <script src="./scripts/core/cookie.js"></script>
+        <script src="./scripts/core/cookie.js" defer></script>
+        <script src="./scripts/core/navigation.js" defer></script>
         <script src="./scripts/components/experience.js" defer></script>
         <script src="./scripts/components/skills.js" defer></script>
         <script src="./scripts/components/github.js" defer></script>
@@ -16,7 +17,7 @@
         <script src="./scripts/ui/theme.js" defer></script>
         <script src="./scripts/index.js" defer></script>
     </head>
-    <body class="light">
+    <body>
         <header class="header">
             <nav class="header__nav" aria-label="Навигация">
                 <ul class="header__nav-list">
@@ -64,15 +65,15 @@
                             <li class="about__content-item">Студент МИСИС</li>
                             <li class="about__content-item">
                                 <div class="tooltip-container">
-                                    <p class="tooltip-text">
-                                        Учусь кодить на
+                                    <p class="tooltip-text">Учусь кодить на</p>
+                                        
                                         <span class="tooltip-trigger" role="tooltip">сплит</span>
-                                        клавиатуре
+                                        <div class="tooltip-content">
+                                            <img src="./assets/images/jpg/keyboard.jpg" alt="image" />
+                                            <p>Клавиатура, разделенная на 2 части</p>
+                                        </div>
+                                    <p class="tooltip-text">клавиатуре</p>
                                     </p>
-                                    <div class="tooltip-content">
-                                        <img src="./assets/images/jpg/keyboard.jpg" alt="image" />
-                                        <p>Клавиатура, разделенная на 2 части</p>
-                                    </div>
                                 </div>
                             </li>
 

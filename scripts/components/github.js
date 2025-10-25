@@ -1,17 +1,23 @@
-const githubTemplate = document.querySelector(".projects__template").content;
-const githubList = document.querySelector(".projects__list");
-const searchInput = document.querySelector(".projects__search-input");
-
-const fetchRepos = async () => {
+/**
+ * Запрашивает элементы репозиториев с api GitHub
+ * @param {HTMLUListElement} reposList список репозиториев
+ * @returns {Promise<Object>}
+ */
+const fetchRepos = async (reposList) => {
     try {
-        const res = await fetch("https://api.github.com/users/sonantedd/repos");
+        const res = await fetch("https://api.github.com/users/sonantedd/repos?sort=updated");
 
         return res.json();
     } catch (error) {
-        githubList.appendChild(createGithubItem({ name: "Ошибка получения проектов" }));
+        reposList.appendChild(createGithubItem({ name: "Ошибка получения проектов" }));
     }
 };
 
+/**
+ * Запрашивает список языков репозитория с api GitHub
+ * @param {string} url адрес api GitHub с информацией о языках репозитория
+ * @returns {Object<string, number>}
+ */
 const fetchLanguages = async (url) => {
     try {
         const res = await fetch(url);
@@ -22,6 +28,11 @@ const fetchLanguages = async (url) => {
     }
 };
 
+/**
+ * Преобразует поля объекта репозитория в необходимые поля
+ * @param {Object} data объект репозитория
+ * @returns {{name: string, description: string, languages: Object<string, number>[], url: string, stargazers_count: number}}
+ */
 const githubPick = async (data) => {
     const repos = await Promise.all(
         data.map(async (repo) => {
@@ -38,6 +49,10 @@ const githubPick = async (data) => {
     return repos;
 };
 
+/**
+ * Возвращает объект со значениями тегов
+ * @returns {Object<string, string>}
+ */
 const getTags = () => {
     return {
         HTML: "html",
@@ -46,6 +61,11 @@ const getTags = () => {
     };
 };
 
+/**
+ * Создает элемент списка тегов
+ * @param {string} tag значение тега
+ * @returns {HTMLLIElement}
+ */
 const createGithubTag = (tag) => {
     const item = document.createElement("li");
     item.classList.add("projects__repo-tag", "tag", getTags()[tag]);
@@ -54,13 +74,22 @@ const createGithubTag = (tag) => {
     return item;
 };
 
+/**
+ * Создает элемент списка репозиториев
+ * @param {{name: string, description: string, languages: Object<string, number>[], url: string, stargazers_count: number}} repo
+ * @returns {HTMLLIElement}
+ */
 const createGithubItem = (repo) => {
+    const githubTemplate = document.querySelector(".projects__template").content;
     const githubItem = githubTemplate.querySelector(".projects__item").cloneNode(true);
+
     githubItem.querySelector(".projects__item-link").href = repo.url;
     githubItem.querySelector(".projects__repo-name").textContent = repo.name;
+
     if (repo.stargazers_count || repo.stargazers_count === 0) {
         githubItem.querySelector(".projects__repo-stars").textContent = `★${repo.stargazers_count}`;
     }
+
     githubItem.querySelector(".projects__repo-description").textContent = repo.description;
     const tagsList = githubItem.querySelector(".projects__repo-tags");
 
@@ -71,29 +100,47 @@ const createGithubItem = (repo) => {
     return githubItem;
 };
 
-const getRepos = async () => {
+/**
+ * Получает список репозиториев из куки или из api GitHub
+ * @param {HTMLUListElement} reposList список репозиториев
+ * @returns {{name: string, description: string, languages: Object<string, number>[], url: string, stargazers_count: number}}
+ */
+const getRepos = async (reposList) => {
     const cookies = getCookies();
     const cachedRepos = cookies.repos;
+    // можно закомментить это условие, чтобы не тянуть список репозиториев из куки
     if (cachedRepos) {
         return JSON.parse(cachedRepos);
     }
-    githubList.appendChild(createGithubItem({ name: "Загрузка" }));
+    reposList.appendChild(createGithubItem({ name: "Загрузка" }));
 
-    const rawRepos = await fetchRepos();
+    const rawRepos = await fetchRepos(reposList);
     const mappedRepos = await githubPick(rawRepos);
     setCookie("repos", JSON.stringify(mappedRepos), 5, "minute");
 
     return mappedRepos;
 };
 
-const debounce = (fn, delay = 200) => {
+/**
+ * Возвращает обертку для функции, вызов которой отложен на заданную задержку
+ * @param {(...args: any[]) => void} callback функция, вызов которой нужно задержать
+ * @param {number} delay задержка в миллисекундах
+ * @returns {(...args: any[]) => void}
+ */
+const debounce = (callback, delay) => {
     let timeout;
     return (...args) => {
         clearTimeout(timeout);
-        timeout = setTimeout(() => fn(...args), delay);
+        timeout = setTimeout(() => callback(...args), delay);
     };
 };
 
+/**
+ *
+ * @param {{name: string, description: string, languages: Object<string, number>[], url: string, stargazers_count: number}} repos преобразованные данные репозиториев
+ * @param {string} query поисковая строка
+ * @returns
+ */
 const filterRepos = (repos, query) => {
     const q = query.trim().toLowerCase();
     return repos.filter(
@@ -103,24 +150,32 @@ const filterRepos = (repos, query) => {
     );
 };
 
-const renderRepos = (repos, query) => {
-    githubList.innerHTML = "";
+/**
+ *
+ * @param {HTMLUListElement} reposList список репозиториев
+ * @param {{name: string, description: string, languages: Object<string, number>[], url: string, stargazers_count: number}} repos преобразованные данные репозиториев
+ * @param {string} query поисковая строка
+ */
+const renderRepos = (reposList, repos, query) => {
+    reposList.innerHTML = "";
     const filteredRepos = filterRepos(repos, query);
-    console.log(filteredRepos);
     if (!filteredRepos.length) {
-        githubList.appendChild(createGithubItem({ name: "Репозитории не найдены" }));
+        reposList.appendChild(createGithubItem({ name: "Репозитории не найдены" }));
     }
     filteredRepos.forEach((repo) => {
-        githubList.appendChild(createGithubItem(repo));
+        reposList.appendChild(createGithubItem(repo));
     });
 };
 
 const initRepos = async () => {
-    const allRepos = await getRepos();
-    renderRepos(allRepos, searchInput.value);
+    const githubList = document.querySelector(".projects__list");
+    const searchInput = document.querySelector(".projects__search-input");
+
+    const allRepos = await getRepos(githubList);
+    renderRepos(githubList, allRepos, searchInput.value);
 
     const debouncedFilter = debounce((e) => {
-        renderRepos(allRepos, e.target.value);
+        renderRepos(githubList, allRepos, e.target.value);
     }, 300);
 
     searchInput.addEventListener("input", (e) => debouncedFilter(e));
