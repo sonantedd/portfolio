@@ -101,22 +101,21 @@ const createGithubItem = (repo) => {
 };
 
 /**
- * Получает список репозиториев из куки или из api GitHub
+ * Получает список репозиториев из кеша или из api GitHub
  * @param {HTMLUListElement} reposList список репозиториев
  * @returns {{name: string, description: string, languages: Object<string, number>[], url: string, stargazers_count: number}}
  */
 const getRepos = async (reposList) => {
-    const cookies = getCookies();
-    const cachedRepos = cookies.repos;
-    // можно закомментить это условие, чтобы не тянуть список репозиториев из куки
+    const cachedRepos = getCache("repos");
+    // можно закомментить это условие, чтобы не тянуть список репозиториев из кеша
     if (cachedRepos) {
-        return JSON.parse(cachedRepos);
+        return cachedRepos;
     }
     reposList.appendChild(createGithubItem({ name: "Загрузка" }));
 
     const rawRepos = await fetchRepos(reposList);
     const mappedRepos = await githubPick(rawRepos);
-    setCookie("repos", JSON.stringify(mappedRepos), 5, "minute");
+    setCache("repos", mappedRepos, 5, "minute");
 
     return mappedRepos;
 };
